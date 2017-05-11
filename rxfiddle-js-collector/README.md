@@ -10,19 +10,16 @@ Observable data flow on [RxFiddle.net](https://rxfiddle.net).
 
 ````javascript
 /* File: your-application.js */
-import { Observable } from "rxjs/Observable"
-import { Subscriber } from "rxjs/Subscriber"
-import "rxjs/add/observable/of"
-import "rxjs/add/operator/map"
-import RxFiddle from "rxfiddle"
+const Rx = require('rxjs/Rx');
+const RxFiddle = require("rxfiddle/RxFiddle");
 
 new RxFiddle({
-  Observable: Observable,
-  Subscriber: Subscriber,
-}).serve({ port: 8080 })
+  Observable: Rx.Observable,
+  Subscriber: Rx.Subscriber,
+}).serve({ port: 8080 });
 
 /* Rest of your application here */
-Observable.of(1, 2, 3)
+Rx.Observable.of(1, 2, 3)
   .map(x => x * 2)
   .subscribe()
 ````
@@ -34,7 +31,7 @@ no code and or event data is send to rxfiddle's servers.
 If you're afraid it does, feel free to run the [RxFiddle App](https://github.com/hermanbanken/RxFiddle) 
 on your own machine.
 
-If you have taken the shortcut of importing using `import * as Rx from "rxjs"` then you can use the following shortcut for instrumentation:
+If you have taken the shortcut of importing using `import * as Rx from "rxjs"` then you can also use the following shortcut for instrumentation:
 
 ````javascript
 import * as Rx from "rxjs"
